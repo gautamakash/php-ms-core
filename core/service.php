@@ -25,6 +25,7 @@ abstract class Service{
     */
     function process(){
         header('Content-Type: application/json');
+        //@TODO check Authentication if enable
         if(isset($_REQUEST['_info']) && $_REQUEST['_info'] == ""){
             echo('{"info": "Sample Info"}');
         }else{
@@ -32,9 +33,9 @@ abstract class Service{
                 switch($_SERVER['REQUEST_METHOD'])
                 {
                 case 'GET': 
-                        echo(json_encode($this->get())); break;
+                        echo(json_encode($this->GET())); break;
                 case 'POST': 
-                        echo(json_encode($this->post())); break;
+                        echo(json_encode($this->POST())); break;
                 case 'PUT': 
                         echo(json_encode($this->PUT())); break;
                 case 'DELETE': 
